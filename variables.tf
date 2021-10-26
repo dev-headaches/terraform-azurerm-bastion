@@ -3,11 +3,6 @@ variable "enviro" {
   description = "define the environment ex. dev,tst,prd,stg"
 }
 
-variable "prjname" {
-  type        = string
-  description = "define the project name ex. prj02"
-}
-
 variable "orgname" {
   type        = string
 }

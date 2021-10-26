@@ -8,19 +8,19 @@ terraform {
 }
 
 resource "azurerm_bastion_host" "Bastion" {
-  name                = format("%s%s%s%s%s%s", "Bast_", var.name, var.orgname, var.prjname, var.enviro, var.prjnum)
+  name                = format("%s%s%s%s%s", "Bast_", var.name, var.orgname, var.enviro, var.prjnum)
   location            = var.location
   resource_group_name = var.bastionrgname
   
   ip_configuration {
-    name                 = format("%s%s%s%s%s%s", "ipconfig_bast_", var.name, var.orgname, var.prjname, var.enviro, var.prjnum)
+    name                 = format("%s%s%s%s%s", "ipconfig_bast_", var.name, var.orgname, var.enviro, var.prjnum)
     subnet_id            = var.AzureBastionSubnet_ID
     public_ip_address_id = var.Bastion_Public_IP_ID
   }
 }
 
 resource "azurerm_network_security_group" "bast_nsg" {
-  name                = format("%s%s%s%s", "bast_nsg_", var.prjname, var.enviro, var.prjnum)
+  name                = format("%s%s%s%s", "bast_nsg_", var.orgname, var.enviro, var.prjnum)
   location            = var.location
   resource_group_name = var.nsgrgname
 
